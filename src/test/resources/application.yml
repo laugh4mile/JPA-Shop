@@ -1,0 +1,25 @@
+# src > test > resources > application.yml 을 생성하면 테스트 전용 설정을 할 수 있다.
+# 스프링 부트는 datasource 설정이 없으면 기본적으로 메모리 DB를 사용하고,
+# driver-class도 현재 등록된 라이브러리를 보고 찾아준다.
+# ddl-auto도 create-drop 모드로 동작한다.
+# 즉 데이터소스나, JPA 관련된 별도의 추가 설정을 하지 않아도 된다.
+spring:
+#  datasource:
+##    url: jdbc:h2:tcp://localhost/~/jpashop
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create # 애플리케이션 실행 시점에 테이블을 drop 하고 다시 생성
+#    properties:
+#      hibernate:
+##        show_sql: true # System.out에 하이버네이트 실행 SQL을 남김. 운영 단계에선 사용 ㄴㄴ.
+#        format_sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: debug # 하이버네이트가 남기는 SQL이 로그에 나옴
+    org.hibernate.type: trace
