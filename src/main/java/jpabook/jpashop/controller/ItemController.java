@@ -66,6 +66,14 @@ public class ItemController {
 
     @PostMapping("/items/{itemId}/edit")
     public String updateItem(@PathVariable Long itemId, @ModelAttribute BookForm form){
+        /*
+
+        아래의 Book 객체 같이 영속성 컨텍스트가 더 이상 관리하지 않는 객체를 준영속 엔티티라고 한다.
+        준영속 엔티티를 변경하는 방법은 dirty checking에 의한 변경감지와 병합(merge)가 있다.
+
+        병합의 동작방식
+        1. 준영속 엔티티(Book)의 식별자(id)로 영속 엔티티를 조회한다. Book객체는 이미 상품등록때 DB에 저장되어 식별자가 존재한다.
+        2.
         Book book = new Book();
         book.setId(form.getId());
         book.setName(form.getName());
@@ -75,6 +83,8 @@ public class ItemController {
         book.setIsbn(form.getIsbn());
 
         itemService.saveItem(book);
+        */
+
         return "redirect:/items";
     }
 }
